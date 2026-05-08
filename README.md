@@ -41,15 +41,9 @@ npm run dev
 ```
 
 ## Deployment
-
-This project can be deployed easily using modern frontend hosting platforms such as Vercel or Netlify.
-
-- Vercel: Connect the repository, import the project, and deploy with the default Vite build settings.
-- Netlify: Connect the repository, set the build command to `npm run build`, and publish the generated `dist` folder.
+https://smartspend-ai-phi.vercel.app/#
 
 ## Live Demo
-
-Live Demo: Coming Soon
 
 ## GitHub Repository
 

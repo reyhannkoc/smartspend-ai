@@ -47,4 +47,4 @@ https://smartspend-ai-phi.vercel.app/#
 
 ## GitHub Repository
 
-GitHub Repository: Coming Soon
+GitHub Repository: https://github.com/reyhannkoc/smartspend-ai

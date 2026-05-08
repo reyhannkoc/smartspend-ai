@@ -15,6 +15,22 @@ function BalanceCard({ transactions }) {
     .reduce((total, transaction) => total + transaction.amount, 0)
 
   const totalBalance = totalIncome - totalExpenses
+  const remainingBalance = totalIncome - totalExpenses
+
+  // Determine status for Money Left card
+  let statusEmoji = '💰'
+  let statusMessage = 'Your finances are healthy.'
+  let statusClass = 'balance-card__stat--positive'
+
+  if (remainingBalance === 0) {
+    statusEmoji = '⚖️'
+    statusMessage = 'Your balance is neutral.'
+    statusClass = 'balance-card__stat--neutral'
+  } else if (remainingBalance < 0) {
+    statusEmoji = '⚠️'
+    statusMessage = 'Warning: Expenses exceed income.'
+    statusClass = 'balance-card__stat--negative'
+  }
 
   return (
     <section className="card balance-card">
@@ -24,6 +40,17 @@ function BalanceCard({ transactions }) {
           <h2 className="balance-card__amount">SmartSpend Overview</h2>
         </div>
         <span className="balance-card__badge">{transactions.length} entries</span>
+      </div>
+
+      <div className="balance-card__money-left">
+        <article className={`balance-card__stat balance-card__stat--money-left ${statusClass}`}>
+          <div className="balance-card__money-left-emoji">{statusEmoji}</div>
+          <span className="balance-card__stat-label">Money Left</span>
+          <strong className="balance-card__stat-value balance-card__money-left-value">
+            {currencyFormatter.format(remainingBalance)}
+          </strong>
+          <p className="balance-card__money-left-status">{statusMessage}</p>
+        </article>
       </div>
 
       <div className="balance-card__stats">
